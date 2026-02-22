@@ -1,0 +1,33 @@
+/* src/pages/Inventory.css */
+.inventory-page {
+  padding-top: 80px; /* Space for fixed header */
+  min-height: 100vh;
+}
+
+.inventory-hero {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #0a0a0a;
+}
+
+.inventory-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.inventory-hero p {
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.inventory-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}

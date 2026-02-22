@@ -1,0 +1,56 @@
+/* src/components/Cursor.css */
+.cursor {
+  display: none; /* Hidden by default on touch devices */
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none; /* Hide default cursor */
+  }
+
+  /* Ensure links don't show the default pointer */
+  a, button, input[type="submit"], .clickable {
+    cursor: none;
+  }
+
+  .cursor {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 3px solid white;
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none; /* Allow clicks to pass through */
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+    mix-blend-mode: difference; /* Cool effect over different backgrounds */
+  }
+
+  /* Center dot */
+  .cursor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor--link-hovered {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(128, 53, 232, 0.1);
+    border-color: transparent;
+  }
+
+  .cursor--clicked {
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}

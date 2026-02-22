@@ -1,0 +1,138 @@
+/* src/components/Services.css */
+.services-section {
+  padding: 6rem 2rem;
+  background-color: #fff;
+  color: #f0e9e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 600px;
+}
+
+.services-header h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #000, #666);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.services-header p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.accordion-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  gap: 1rem;
+}
+
+.accordion-item {
+  position: relative;
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.accordion-item.active {
+  flex: 3;
+}
+
+.accordion-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.accordion-item:hover .accordion-bg {
+  transform: scale(1.05);
+}
+
+.accordion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+  z-index: 1;
+}
+
+.accordion-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  width: 100%;
+}
+
+.accordion-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+}
+
+.accordion-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.accordion-desc {
+  font-size: 1rem;
+  color: #ccc;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transform: translateY(20px);
+}
+
+.accordion-item.active .accordion-desc {
+  opacity: 1;
+  max-height: 100px; /* Approximate max height */
+  transform: translateY(0);
+  margin-top: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .accordion-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .accordion-item {
+    height: 100px;
+  }
+  
+  .accordion-item.active {
+    height: 300px;
+    flex: none;
+  }
+}
